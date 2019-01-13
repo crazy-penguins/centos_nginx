@@ -1,0 +1,12 @@
+---
+version: 0.2
+phases:
+  install:
+    commands:
+      - "python -m platform"
+  # pre_build:
+  # build:
+  # post_build:
+artifacts:
+  files:
+    
