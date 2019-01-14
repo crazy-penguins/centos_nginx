@@ -4,7 +4,7 @@ WORKDIR /work
 SHELL [ "/bin/bash", "-c" ]
 COPY NAME .
 COPY VERSION .
-COPY centos_nginx.sh
+COPY centos_nginx.sh .
 RUN cat ./NAME > /etc/docker.conf \
   && printf ":" >> /etc/docker.conf \
   && cat ./VERSION >> /etc/docker.conf \
