@@ -1,0 +1,4 @@
+#!/bin/bash
+version=$(cat "VERSION")
+name=$(cat "NAME")
+docker build -f $DOCKERFILE_PATH -t "${name}:${version}" -t "${name}:latest" .
