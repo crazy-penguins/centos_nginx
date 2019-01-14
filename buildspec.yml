@@ -7,6 +7,6 @@ phases:
   # pre_build:
   # build:
   # post_build:
-artifacts:
-  files:
+#artifacts:
+#  files:
     
