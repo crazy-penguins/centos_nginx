@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - "export version=1.14.2"
-      - pushd "nginx-$version"
+      - cd "nginx-$version"
       - |
         ./configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx \
           --modules-path=/usr/lib64/nginx/modules \
@@ -43,18 +43,17 @@ phases:
           --with-ld-opt='-Wl,-z,relro -Wl,-z,now -pie' \
           --add-module="$CODEBUILD_SRC_DIR/ngx_http_geoip2_module"
       - zip -r "../nginx-$version.zip" .
-      - popd
-      - pushd maxmind
+      - cd $CODEBUILD_SRC_DIR
+      - cd maxmind
       - wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz
       - wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
       - gunzip *.gz
       - filename="maxmind-$(date +%Y-%m-%d).zip"
       - zip -r ../$filename .
-      - popd
     # pre_build:
   # build:
   # post_build:
 artifacts:
   files:
     - nginx-1.14.2.zip
-    - maxmind.zip
+    - "maxmind-*.zip"
