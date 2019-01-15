@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - "python -m platform"
-      - "echo 'hello, olive'"
+      - "cat /etc/docker.conf"
   # pre_build:
   # build:
   # post_build:
